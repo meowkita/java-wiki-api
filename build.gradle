@@ -4,8 +4,8 @@ plugins {
     id 'maven-publish'
 }
 
-group 'io.meowkita'
-version '1.0'
+group 'io.github.meowkita'
+version '1.0.0'
 sourceCompatibility = 11
 
 repositories {
