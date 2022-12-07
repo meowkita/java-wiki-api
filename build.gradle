@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'jacoco'
 }
 
 group 'io.meowkita'
@@ -19,4 +20,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
 }
