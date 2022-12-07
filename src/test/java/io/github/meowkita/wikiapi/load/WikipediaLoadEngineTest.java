@@ -1,6 +1,6 @@
-package io.meowkita.wikiapi.load;
+package io.github.meowkita.wikiapi.load;
 
-import io.meowkita.wikiapi.page.Page;
+import io.github.meowkita.wikiapi.page.Page;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

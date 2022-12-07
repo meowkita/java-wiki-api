@@ -1,4 +1,4 @@
-package io.meowkita.wikiapi.search;
+package io.github.meowkita.wikiapi.search;
 
 import java.util.List;
 

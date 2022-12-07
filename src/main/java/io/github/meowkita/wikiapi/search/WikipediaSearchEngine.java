@@ -1,6 +1,6 @@
-package io.meowkita.wikiapi.search;
+package io.github.meowkita.wikiapi.search;
 
-import io.meowkita.wikiapi.http.WikiHttpClient;
+import io.github.meowkita.wikiapi.http.WikiHttpClient;
 import org.json.JSONArray;
 
 import java.util.List;

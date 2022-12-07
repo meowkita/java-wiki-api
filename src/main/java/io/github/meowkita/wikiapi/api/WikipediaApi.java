@@ -1,11 +1,11 @@
-package io.meowkita.wikiapi.api;
+package io.github.meowkita.wikiapi.api;
 
-import io.meowkita.wikiapi.load.LoadEngine;
-import io.meowkita.wikiapi.load.MinifiedWikipediaLoadEngine;
-import io.meowkita.wikiapi.load.WikipediaLoadEngine;
-import io.meowkita.wikiapi.page.Page;
-import io.meowkita.wikiapi.search.SearchEngine;
-import io.meowkita.wikiapi.search.WikipediaSearchEngine;
+import io.github.meowkita.wikiapi.load.LoadEngine;
+import io.github.meowkita.wikiapi.load.MinifiedWikipediaLoadEngine;
+import io.github.meowkita.wikiapi.load.WikipediaLoadEngine;
+import io.github.meowkita.wikiapi.page.Page;
+import io.github.meowkita.wikiapi.search.SearchEngine;
+import io.github.meowkita.wikiapi.search.WikipediaSearchEngine;
 
 import java.util.List;
 

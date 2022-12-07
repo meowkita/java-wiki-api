@@ -1,4 +1,4 @@
-package io.meowkita.wikiapi.http;
+package io.github.meowkita.wikiapi.http;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

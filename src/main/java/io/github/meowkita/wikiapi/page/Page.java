@@ -1,4 +1,4 @@
-package io.meowkita.wikiapi.page;
+package io.github.meowkita.wikiapi.page;
 
 public class Page {
 

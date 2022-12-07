@@ -2,10 +2,12 @@ plugins {
     id 'java-library'
     id 'jacoco'
     id 'maven-publish'
+    id 'signing'
+    id 'io.codearte.nexus-staging' version '0.30.0'
 }
 
 group 'io.github.meowkita'
-version '1.0.0'
+version '1.0.1'
 sourceCompatibility = 11
 
 repositories {
@@ -18,6 +20,61 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+nexusStaging {
+    serverUrl = "https://s01.oss.sonatype.org/service/local/"
+    username = project.properties["nexusUsername"].toString()
+    password = project.properties["nexusPassword"].toString()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = 'java-wiki-api'
+                description = 'Library for interacting with the wikipedia API, searching and loading pages'
+                url = 'https://github.com/meowkita/java-wiki-api'
+                licenses {
+                    license {
+                        name = 'GNU General Public License v3.0'
+                        url = 'https://www.gnu.org/licenses/gpl-3.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'meowkita'
+                        name = 'Nikita Lossinov'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/meowkita/java-wiki-api'
+                    connection = 'scm:git://github.com/meowkita/java-wiki-api.git'
+                    developerConnection = 'scm:git://github.com/meowkita/java-wiki-api.git'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = project.properties["nexusUsername"].toString()
+                password = project.properties["nexusPassword"].toString()
+            }
+        }
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign publishing.publications.mavenJava
 }
 
 test {
@@ -35,13 +92,5 @@ jar {
                 'Implementation-Title': project.name,
                 'Implementation-Version': project.version
         )
-    }
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
     }
 }

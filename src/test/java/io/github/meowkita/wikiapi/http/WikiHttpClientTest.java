@@ -1,4 +1,4 @@
-package io.meowkita.wikiapi.http;
+package io.github.meowkita.wikiapi.http;
 
 import org.junit.jupiter.api.Test;
 

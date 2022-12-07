@@ -1,6 +1,6 @@
-package io.meowkita.wikiapi.api;
+package io.github.meowkita.wikiapi.api;
 
-import io.meowkita.wikiapi.page.Page;
+import io.github.meowkita.wikiapi.page.Page;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

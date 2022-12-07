@@ -1,4 +1,4 @@
-package io.meowkita.wikiapi.load;
+package io.github.meowkita.wikiapi.load;
 
 public class MinifiedWikipediaLoadEngine extends WikipediaLoadEngine {
 
