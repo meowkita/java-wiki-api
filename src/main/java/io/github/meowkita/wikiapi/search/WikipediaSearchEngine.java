@@ -11,6 +11,11 @@ public class WikipediaSearchEngine implements SearchEngine {
 
     private final WikiHttpClient client = new WikiHttpClient();
 
+    /**
+     * @param query a query of a page to be found
+     * @return returns a {@link List} which contains the first 10 found
+     * page titles to load
+     */
     @Override
     public List<String> search(String query) {
         String url = makeUrl(query);
@@ -18,6 +23,10 @@ public class WikipediaSearchEngine implements SearchEngine {
         return parseTitles(response);
     }
 
+    /**
+     * @param response a json string with a search results
+     * @return returns a parsed {@link List} of titles
+     */
     private List<String> parseTitles(String response) {
         JSONArray responseJson = new JSONArray(response);
         JSONArray titlesJson = responseJson.getJSONArray(1);
@@ -28,6 +37,10 @@ public class WikipediaSearchEngine implements SearchEngine {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * @param query a query for which a page needs to be found
+     * @return returns a constructed url with a query
+     */
     private String makeUrl(String query) {
         String normalizedQuery = query.replaceAll(" ", "%20");
 

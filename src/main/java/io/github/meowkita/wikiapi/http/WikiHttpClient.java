@@ -6,10 +6,17 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
+/**
+ * Wrapper over {@link OkHttpClient} for executing queries and simply constructing them
+ */
 public class WikiHttpClient {
 
     private final OkHttpClient client = new OkHttpClient();
 
+    /**
+     * @param url the url to use to make the request
+     * @return returns a stringified response body
+     */
     public String request(String url) {
         Request request = buildRequest(url);
 
@@ -20,6 +27,13 @@ public class WikiHttpClient {
         }
     }
 
+
+    /**
+     * Used for simple {@link Request} creation
+     *
+     * @param url the url to use to make the request
+     * @return returns a {@link Request}
+     */
     private Request buildRequest(String url) {
         return new Request.Builder().url(url).build();
     }

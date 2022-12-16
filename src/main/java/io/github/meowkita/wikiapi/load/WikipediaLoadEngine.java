@@ -8,6 +8,10 @@ public class WikipediaLoadEngine implements LoadEngine {
 
     private final WikiHttpClient client = new WikiHttpClient();
 
+    /**
+     * @param title a title of a page to be loaded
+     * @return returns a {@link Page} with the full body of the Wikipedia page
+     */
     @Override
     public Page load(String title) {
         String url = makeUrl(title);
@@ -15,6 +19,10 @@ public class WikipediaLoadEngine implements LoadEngine {
         return parse(response);
     }
 
+    /**
+     * @param response a json string with a page info
+     * @return returns a parsed {@link Page}
+     */
     private Page parse(String response) {
         JSONObject responseJson = new JSONObject(response);
         JSONObject pagesJson = responseJson
@@ -33,6 +41,10 @@ public class WikipediaLoadEngine implements LoadEngine {
         return new Page(title, formattedBody);
     }
 
+    /**
+     * @param title a title to be placed in url
+     * @return returns a constructed url with a query
+     */
     protected String makeUrl(String title) {
         String normalizedTitle = title.replaceAll(" ", "%20");
 
